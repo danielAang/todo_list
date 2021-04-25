@@ -1,0 +1,4 @@
+port: 8080 
+mongo:
+  url: localhost:27017
+  dbName: todo_list
