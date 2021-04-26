@@ -11,12 +11,13 @@ type Constants struct {
 }
 
 func initViper() (Constants, error) {
-	viper.SetConfigName("application.yml")
+	viper.SetConfigName("application")
+	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	if err := viper.ReadInConfig(); err != nil {
 		return Constants{}, err
 	}
-	viper.SetDefault("PORT", "8080")
+	viper.SetDefault("port", "8080")
 	var constants Constants
 	err := viper.Unmarshal(&constants)
 	return constants, err
