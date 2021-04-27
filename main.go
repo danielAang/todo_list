@@ -21,7 +21,7 @@ func Routes(config *internal.Config) *chi.Mux {
 		middleware.Recoverer,
 	)
 	router.Route("/v1", func(r chi.Router) {
-		r.Mount("/api/todo", todo.Routes(config))
+		r.Mount("/api/todo", todo.New(config)())
 	})
 
 	return router
